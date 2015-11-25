@@ -3,7 +3,9 @@ package com.example.android.dinnerapp;
 import android.app.Application;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Logger;
 import com.google.android.gms.analytics.Tracker;
+
 
 /**
  * Created by petr on 25-Nov-15.
@@ -16,6 +18,7 @@ public class MyApplication extends Application {
             GoogleAnalytics googleAnalytics = GoogleAnalytics.getInstance(this);
             mTracker = googleAnalytics.newTracker(R.xml.track_app);
             googleAnalytics.enableAutoActivityReports(this);
+            googleAnalytics.getLogger().setLogLevel(Logger.LogLevel.VERBOSE);
         }
     }
     public Tracker getmTracker() {
